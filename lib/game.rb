@@ -1,31 +1,49 @@
-require_relative 'computer'
-require_relative 'human'
+require_relative 'player'
+# require_relative 'human'
 
 class Game
 
-  # def initialize
+  # def initialize(player1 = Player.new, player2 = Player.new)
   #   #we want to initialize a human and a computer
   #   #add two player game (couldn't help)
-  #   human = Human.new
-  #   computer = Computer.new
-  #   computer.generate_turn
+  #   @human = player1
+  #   @computer = player2
   # end
 
-  def human_winner?(human, computer)
-    return true if human.choice == :rock && computer.choice == :scissors
-    return true if human.choice == :paper && computer.choice == :rock
-    return true if human.choice == :scissors && computer.choice == :paper
+  def player1_winner?(player1, player2)
+    return true if player1.choice == :rock && player2.choice == :scissors
+    return true if player1.choice == :paper && player2.choice == :rock
+    return true if player1.choice == :scissors && player2.choice == :paper
   end
 
-  def human_loser?(human, computer)
-    return true if human.choice == :rock && computer.choice == :paper
-    return true if human.choice == :paper && computer.choice == :scissors
-    return true if human.choice == :scissors && computer.choice == :rock
+  def player1_loser?(player1, player2)
+    return true if player1.choice == :rock && player2.choice == :paper
+    return true if player1.choice == :paper && player2.choice == :scissors
+    return true if player1.choice == :scissors && player2.choice == :rock
   end
 
-  def draw?(human, computer)
-    return true if human.choice == computer.choice
+  def draw?(player1, player2)
+    return true if player1.choice == player2.choice
   end
+
+  # def play_game(player1, player2)
+  #   @computer.generate_turn
+  #   if game.player1_winner?(human, computer)
+  #     @message1 = "You win" 
+  #     @message2 = "Congratulations. Computer chose #{computer.choice}"
+  #     $previous_result = :win
+  #   end
+  #   if game.player1_loser?(human, computer)
+  #     @message1 = "You lose" 
+  #     @message2 = "Commiserations. Computer chose #{computer.choice}"
+  #     $previous_result = :loss
+  #   end
+  #   if game.draw?(human, computer)
+  #     @message1 = "Draw" 
+  #     @message2 = "Computer also chose #{computer.choice}"
+  #     $previous_result = :draw
+  #   end
+  # end
 
 end
 

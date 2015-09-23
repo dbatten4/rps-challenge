@@ -2,68 +2,68 @@ require 'game'
 
 describe Game do 
 
-  context 'human wins' do 
+  context 'player1 wins' do 
 
-    it 'human wins if human chooses rock and comp chooses scissors' do
-      human = (double :human, choice: :rock)
-      computer = (double :computer, choice: :scissors)
-      expect(subject.human_winner?(human, computer)).to eq(true)
+    it 'player1 wins if player1 chooses rock and player2 chooses scissors' do
+      player1 = (double :player, choice: :rock)
+      player2 = (double :player, choice: :scissors)
+      expect(subject.player1_winner?(player1, player2)).to eq(true)
     end
 
-    it 'human wins if human chooses paper and comp chooses rock' do
-      human = (double :human, choice: :paper)
-      computer = (double :computer, choice: :rock)
-      expect(subject.human_winner?(human, computer)).to eq(true)
+    it 'player1 wins if player1 chooses paper and player2 chooses rock' do
+      player1 = (double :player, choice: :paper)
+      player2 = (double :player, choice: :rock)
+      expect(subject.player1_winner?(player1, player2)).to eq(true)
     end
 
-    it 'human wins if human chooses scissors and comp chooses paper' do
-      human = (double :human, choice: :scissors)
-      computer = (double :computer, choice: :paper)
-      expect(subject.human_winner?(human, computer)).to eq(true)
+    it 'player1 wins if player1 chooses scissors and player2 chooses paper' do
+      player1 = (double :player, choice: :scissors)
+      player2 = (double :player, choice: :paper)
+      expect(subject.player1_winner?(player1, player2)).to eq(true)
     end
 
   end
 
-  context 'human loses' do
+  context 'player1 loses' do
 
-    it 'human loses if human chooses rock and comp chooses paper' do 
-      human = (double :human, choice: :rock)
-      computer = (double :computer, choice: :paper)
-      expect(subject.human_loser?(human, computer)).to eq(true)
+    it 'player1 loses if player1 chooses rock and player2 chooses paper' do 
+      player1 = (double :player, choice: :rock)
+      player2 = (double :player, choice: :paper)
+      expect(subject.player1_loser?(player1, player2)).to eq(true)
     end
 
-    it 'human loses if human chooses scissors and comp chooses rock' do 
-      human = (double :human, choice: :scissors)
-      computer = (double :computer, choice: :rock)
-      expect(subject.human_loser?(human, computer)).to eq(true)
+    it 'player1 loses if player1 chooses scissors and player2 chooses rock' do 
+      player1 = (double :player, choice: :scissors)
+      player2 = (double :player, choice: :rock)
+      expect(subject.player1_loser?(player1, player2)).to eq(true)
     end
 
-    it 'human loses if human chooses paper and comp chooses scissors' do 
-      human = (double :human, choice: :paper)
-      computer = (double :computer, choice: :scissors)
-      expect(subject.human_loser?(human, computer)).to eq(true)
+    it 'player1 loses if player1 chooses paper and player2 chooses scissors' do 
+      player1 = (double :player, choice: :paper)
+      player2 = (double :player, choice: :scissors)
+      expect(subject.player1_loser?(player1, player2)).to eq(true)
     end
 
   end
 
   context 'draw' do 
 
-    it 'is a draw if human and comp choose rock' do 
-      human = (double :human, choice: :rock)
-      computer = (double :computer, choice: :rock)
-      expect(subject.draw?(human, computer)).to eq(true)
+    it 'is a draw if player1 and player2 choose rock' do 
+      player1 = (double :player, choice: :rock)
+      player2 = (double :player, choice: :rock)
+      expect(subject.draw?(player1, player2)).to eq(true)
     end
 
-    it 'is a draw if human and comp choose paper' do 
-      human = (double :human, choice: :paper)
-      computer = (double :computer, choice: :paper)
-      expect(subject.draw?(human, computer)).to eq(true)
+    it 'is a draw if player1 and player2 choose paper' do 
+      player1 = (double :player, choice: :paper)
+      player2 = (double :player, choice: :paper)
+      expect(subject.draw?(player1, player2)).to eq(true)
     end
 
-    it 'is a draw if human and comp choose scissors' do 
-      human = (double :human, choice: :scissors)
-      computer = (double :computer, choice: :scissors)
-      expect(subject.draw?(human, computer)).to eq(true)
+    it 'is a draw if player1 and player2 choose scissors' do 
+      player1 = (double :player, choice: :scissors)
+      player2 = (double :player, choice: :scissors)
+      expect(subject.draw?(player1, player2)).to eq(true)
     end
 
   end
