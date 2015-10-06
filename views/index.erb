@@ -1,22 +1,31 @@
-<body style="background-image: url('/images/rsz_rps-background2.png')">
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>RPS</title>
+   <!--  <link rel="stylesheet" type="text/css" href="style.css"> -->
+  </head>
 
-<div style="font-family: 'Lucida Console', 'Fira Mono', monospace; position: absolute; top: 50%; left: 50%; margin-right: -50%; transform: translate(-50%, -50%); text-align: center; background: white; border: solid white; width: 300px; height: 150px; border-radius: 20%">
-  <div style="font-size: 210%; margin-top: 25px">
-    Welcome to RPS
+  <body>
+
+  <div class="central" id="welcome_box">
+    <div id="welcome_message">
+      Welcome to RPS
+    </div>
+
+    <div style="font-size: 80%; padding: 8px">
+      Please enter your name
+    </div>
+
+    <div>
+      <form action="/" method="post">
+        <input type="text" name="name" id="name_box" required>
+        <input type="submit" value="Submit" style="font-size: 70%">
+      </form> 
+    </div>
   </div>
 
-  <div style="font-size: 80%; padding: 8px">
-    Please enter your name
-  </div>
+  </body>
 
-  <div>
-    <form action="/" method="post">
-      <input type="text" name="name" style="font-family: 'Fira Mono', 'Lucida Console', monospace; font-size: 90%; text-align: center" required>
-      <input type="submit" value="Submit" style="font-family: 'Fira Mono', 'Lucida Console', monospace; font-size: 70%">
-    </form> 
-  </div>
-</div>
-
-</body>
+</html>
 
 

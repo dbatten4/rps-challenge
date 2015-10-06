@@ -1,5 +1,6 @@
 require 'sinatra/base'
 require_relative 'game'
+require_relative 'player'
 
 class RPSWeb < Sinatra::Base
 
@@ -7,7 +8,7 @@ class RPSWeb < Sinatra::Base
   enable :sessions
   set :static, true
   set :root, File.dirname(__FILE__)
-  
+
   get '/' do
     erb :index
   end
@@ -24,7 +25,7 @@ class RPSWeb < Sinatra::Base
 
   get '/result' do
     human = Player.new
-    computer = Player.new # move logic to the model
+    computer = Player.new
     game = Game.new
     human.choose_option(params[:choice].to_sym)
     computer.generate_turn

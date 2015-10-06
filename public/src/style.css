@@ -1,0 +1,69 @@
+body {
+  background-image: url('/images/rsz_rps-background2.png');
+  font-family: 'Lucida Console', 'Fira Mono', monospace;
+}
+.central {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+  text-align: center;
+}
+
+#welcome_box {
+  background: white;
+  border: solid white;
+  width: 300px;
+  height: 150px;
+  border-radius: 20%;
+}
+
+#welcome_message {
+  font-size: 210%;
+  margin-top: 25px;
+}
+
+#name_box {
+  font-size: 90%;
+  text-align: center;
+}
+
+#game_message {
+  font-size: 200%;
+  padding: 10px;
+  background: #fff;
+  border-radius: 20%
+}
+
+#options_box {
+  background: white;
+  border-radius: 50%;
+  padding: 20px;
+}
+
+.option_image {
+  display: inline-block;
+  padding: 10px
+}
+
+.image_link {
+  display: block;
+  text-align: center;
+  padding-bottom: 20px
+}
+
+#result_box {
+  background: white;
+  padding: 60px;
+  border-radius: 100%;
+}
+
+#result_message_large {
+  font-size: 200%;
+}
+
+#result_message_small {
+  font-size: 100%;
+  padding: 10px;
+}
