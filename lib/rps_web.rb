@@ -19,6 +19,17 @@ class RPSWeb < Sinatra::Base
   end
 
   get '/game' do 
+    @message2 = 'Pick another move'
+    if $previous_result == :none
+      @message1 = 'Hello'
+      @message2 = 'Pick your move'
+    elsif $previous_result == :win
+      @message1 = ['You\'re awesome', 'Way to go', 'Nice one', 'Great stuff', 'You\'re a natural', 'You\'re making it look easy'].sample
+    elsif $previous_result == :loss
+      @message1 = ['Unlucky', 'Stiff upper lip', 'Roll with the punches', 'It\'s a game of chance', 'It\'s a game of two halves', 'Stay strong'].sample
+    elsif $previous_result == :draw
+      @message1 = ['At least you didn\'t lose', 'So close', 'These things happen', 'You can do this', 'Almost had him', 'Keep your focus'].sample
+    end
     @name = session[:name]
     erb :game
   end
@@ -29,21 +40,9 @@ class RPSWeb < Sinatra::Base
     game = Game.new
     human.choose_option(params[:choice].to_sym)
     computer.generate_turn
-    if game.player1_winner?(human, computer)
-      @message1 = "You win" 
-      @message2 = "Congratulations. Computer chose #{computer.choice}"
-      $previous_result = :win
-    end
-    if game.player1_loser?(human, computer)
-      @message1 = "You lose" 
-      @message2 = "Commiserations. Computer chose #{computer.choice}"
-      $previous_result = :loss
-    end
-    if game.draw?(human, computer)
-      @message1 = "Draw" 
-      @message2 = "Computer also chose #{computer.choice}"
-      $previous_result = :draw
-    end
+    game.play_game(human, computer)
+    @message1 = game.message1
+    @message2 = game.message2
     erb :result
   end
 

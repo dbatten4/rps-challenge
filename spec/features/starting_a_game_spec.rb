@@ -16,14 +16,14 @@ feature 'Starting a new game' do
     visit '/'
     fill_in('name', :with => 'Dom')
     click_button('Submit')
-    expect(page).to have_content "Hello Dom"
+    expect(page).to have_content "Hello, Dom"
   end
 
   scenario 'pressing submit takes me to the game page' do
     visit '/'
     fill_in('name', :with => 'Dom')
     click_button('Submit')
-    expect(page).to have_content "pick your move"
+    expect(page).to have_content "Pick your move"
   end
 
   scenario 'should have default option of rock' do 

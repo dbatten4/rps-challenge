@@ -1,39 +1,24 @@
-<body>
-
-  <div class="central"> 
-    <div id="game_message">
-    <% if $previous_result == :none %>
-      Hello <%= @name %>, pick your move
-    <% elsif $previous_result == :win %>
-      <%= ['You\'re awesome', 'Way to go', 'Nice one', 'Great stuff', 'You\'re a natural', 'You\'re making it look easy'].sample %>, <%= @name %>. Pick another move
-    <% elsif $previous_result == :loss %>
-      <%= ['Unlucky', 'Stiff upper lip', 'Roll with the punches', 'It\'s a game of chance', 'It\'s a game of two halves', 'Stay strong'].sample %>, <%= @name %>. Pick another move
-    <% elsif $previous_result == :draw %>
-      <%= ['At least you didn\'t lose', 'So close', 'These things happen', 'You can do this', 'Almost had him', 'Keep your focus'].sample %>, <%= @name %>. Pick another move
-    <% end %>
-    </div>
-    <div id="options_box">
-      <form action="/result">
-        <div class="option_image">
-            <label for="rock" class="image_link"><img src="/images/rsz_rock1.png" alt="Rock" /></label>
-            <input type="radio" id="rock" name="choice" value="rock" checked />
-         </div>
-        <div class="option_image">    
-          <label for="paper" class="image_link"><img src="/images/rsz_paper1.png" alt="Paper" /></label>   
-          <input type="radio" id="paper" name="choice" value="paper"/>
-        </div>
-        <div class="option_image"> 
-          <label for="scissors" class="image_link"><img src="/images/rsz_scissors2.png" alt="Scissors" /></label>
-          <input type="radio" id="scissors" name="choice" value="scissors" />
-        </div>
-        <div style="padding: 10px">
-          <input type="submit" value="Play">
-        </div>
-      </form>
-    </div>
+<div class="central"> 
+  <div id="game_message">
+  <%= @message1 %>, <%= @name %>. <%=@message2 %>
   </div>
-
-</body>
-
-
-
+  <div id="options_box">
+    <form action="/result">
+      <div class="option_image">
+        <label for="rock" class="image_link"><img src="/images/rsz_rock1.png" alt="Rock" /></label>
+        <input type="radio" id="rock" name="choice" value="rock" checked />
+      </div>
+      <div class="option_image">    
+        <label for="paper" class="image_link"><img src="/images/rsz_paper1.png" alt="Paper" /></label>   
+        <input type="radio" id="paper" name="choice" value="paper"/>
+      </div>
+      <div class="option_image"> 
+        <label for="scissors" class="image_link"><img src="/images/rsz_scissors2.png" alt="Scissors" /></label>
+        <input type="radio" id="scissors" name="choice" value="scissors" />
+      </div>
+      <div style="padding: 10px">
+        <input type="submit" value="Play">
+      </div>
+    </form>
+  </div>
+</div>
